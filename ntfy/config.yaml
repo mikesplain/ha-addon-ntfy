@@ -11,6 +11,14 @@ arch:
   - amd64
   - i386
 init: false
+ingress: true
+ingress_port: 80
+# ingress_entry: "/"
+webuil: "http://[HOST]:[PORT:80]"
+ports:
+  80/tcp: 8777
+  80/udp: 8777  
+
 map:
   - share:rw
 options:
