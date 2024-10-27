@@ -3,13 +3,13 @@ name: ntfy
 version: "2.11.0"
 slug: ntfy
 description: ntfy for hassio
-url: "github.com/mikesplain/ha-addon-ntfy/tree/main/example"
+url: "https://github.com/mikesplain/ha-addon-ntfy/tree/main/ntfy"
 arch:
-  # - armhf
-  # - armv7
+  - armhf
+  - armv7
   - aarch64
   - amd64
-  # - i386
+  - i386
 init: false
 map:
   - share:rw
@@ -17,4 +17,4 @@ options:
   message: "Hello world..."
 schema:
   message: "str?"
-image: "ghcr.io/mikesplain/ha-addon-ntfy"
+# image: "ghcr.io/mikesplain/{arch}-ha-addon-ntfy"
