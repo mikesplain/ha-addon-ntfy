@@ -13,14 +13,17 @@ arch:
 init: false
 ingress: true
 ingress_port: 80
+ingress_stream: true
 # ingress_entry: "/"
 webuil: "http://[HOST]:[PORT:80]"
 ports:
   80/tcp: 8777
-  80/udp: 8777  
-
+  80/udp: 8777
 map:
+  - homeassistant_config
   - share:rw
+# environment:
+#   NTFY_BASE_URL: http://localhost:7123/hassio/ingress/local_ntfy
 options:
   message: "Hello world..."
 schema:
