@@ -58,10 +58,10 @@ fi
 
 bashio::log.info Starting ntfy
 
-bashio::log.debug "certfile: $(bashio::config 'certfile')"
-bashio::log.debug "keyfile: $(bashio::config 'keyfile')"
+bashio::log.info "certfile: $(bashio::config 'certfile')"
+bashio::log.info "keyfile: $(bashio::config 'keyfile')"
 
-bashio::log.debug "output env: $(env)"
+bashio::log.info "output env: $(env)"
 
 ## Run your program
 exec /usr/bin/ntfy serve
