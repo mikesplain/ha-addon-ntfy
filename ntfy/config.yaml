@@ -32,9 +32,11 @@ options:
   ssl: true
   certfile: fullchain.pem
   keyfile: privkey.pem
+  base_url: ntfy.example.com
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   ssl: bool
   certfile: str
   keyfile: str
+  base_url: str
 # image: "ghcr.io/mikesplain/{arch}-ha-addon-ntfy"

@@ -9,6 +9,7 @@
 declare log_level
 declare certfile
 declare keyfile
+declare base_url
 
 bashio::config.require.ssl
 
@@ -57,11 +58,15 @@ fi
 # export NTFY_WEB_ROOT=disable
 
 export NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
+export NTFY_BASE_URL="$(bashio::config 'base_url')"
 
 bashio::log.info Starting ntfy
 
 bashio::log.info "certfile: $(bashio::config 'certfile')"
 bashio::log.info "keyfile: $(bashio::config 'keyfile')"
+
+bashio::log.info "NTFY_UPSTREAM_BASE_URL: ${NTFY_UPSTREAM_BASE_URL}"
+bashio::log.info "NTFY_BASE_URL: ${NTFY_BASE_URL}"
 
 bashio::log.info "output env: $(env)"
 
