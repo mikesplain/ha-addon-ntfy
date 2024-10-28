@@ -27,7 +27,7 @@ else
   export NTFY_LISTEN_HTTP=:7612
 fi
 
-export NTFY_BEHIND_PROXY=true
+# export NTFY_BEHIND_PROXY=true
 # export NTFY_WEB_ROOT=disable
 
 ## Run your program
