@@ -33,6 +33,7 @@ fi
 bashio::log.info uname info: $(uname -a)
 
 bashio::log.info Starting ntfy
+bashio::log.info $(/usr/bin/ntfy serve)
 
 ## Run your program
 exec /usr/bin/ntfy serve
