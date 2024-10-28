@@ -13,7 +13,15 @@ declare message
 message=$(bashio::config 'message')
 
 ## Print the message the user supplied, defaults to "Hello World..."
-bashio::log.info "${message:="Hello World..."}"
+# bashio::log.info "${message:="Hello World..."}"
+
+# if bashio::config.true 'ssl'; then
+#     certfile=$(bashio::config 'certfile')
+#     keyfile=$(bashio::config 'keyfile')
+
+export NTFY_BEHIND_PROXY=true
+export NTFY_LISTEN_HTTP=:80
+# export NTFY_WEB_ROOT=disable
 
 ## Run your program
 exec /usr/bin/ntfy serve
