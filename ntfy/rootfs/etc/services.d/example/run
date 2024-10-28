@@ -20,8 +20,8 @@ if bashio::config.true 'ssl'; then
   keyfile=$(bashio::config 'keyfile')
 
   export NTFY_LISTEN_HTTPS=:443
-  export NTFY_CERT_FILE="${certfile]}"
-  export NTFY_KEY_FILE="${keyfile]}"
+  export NTFY_CERT_FILE="${certfile}"
+  export NTFY_KEY_FILE="${keyfile}"
 fi
 
 export NTFY_BEHIND_PROXY=true
