@@ -42,41 +42,42 @@ fi
 ## Print the message the user supplied, defaults to "Hello World..."
 # bashio::log.info "${message:="Hello World..."}"
 
+mkdir -p /etc/ntfy
+
 if bashio::config.true 'ssl'; then
   certfile=$(bashio::config 'certfile')
   keyfile=$(bashio::config 'keyfile')
 
-  export NTFY_LISTEN_HTTPS=:7612
-  export NTFY_LISTEN_HTTP=""
+  LISTEN_HTTPS=:7612
+  LISTEN_HTTP=""
   export NTFY_CERT_FILE="/ssl/${certfile}"
   export NTFY_KEY_FILE="/ssl/${keyfile}"
 else
-  export NTFY_LISTEN_HTTP=:7612
+  LISTEN_HTTP=:7612
+  LISTEN_HTTPS=""
 fi
-
-# export NTFY_BEHIND_PROXY=true
-# export NTFY_WEB_ROOT=disable
-
-export NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
-export NTFY_BASE_URL="$(bashio::config 'base_url')"
 
 DATA_DIR=/data/ntfy
 
-export NTFY_CACHE_FILE="${DATA_DIR}/cache.db"
-export NTFY_AUTH_FILE="${DATA_DIR}/auth.db"
-export NTFY_ATTACHMENT_CACHE_DIR="${DATA_DIR}/attachments"
-export NTFY_ENABLE_LOGIN=true
-export NTFY_AUTH_DEFAULT_ACCESS=deny-all
+cat <<EOF >>/etc/ntfy/server.yml
+base-url: "$(bashio::config 'base_url')"
+upstream-base-url: https://ntfy.sh
+listen-http: "${LISTEN_HTTP}"
+listen-https: "${LISTEN_HTTPS}"
+cache-file: "${DATA_DIR}/cache.db"
+auth-file: "${DATA_DIR}/auth.db"
+attachment-cache-dir: "${DATA_DIR}/attachments"
+enable-login: true
+auth-default-access: deny-all
+EOF
 
-mkdir -p $NTFY_ATTACHMENT_CACHE_DIR
+mkdir -p ${DATA_DIR}/attachments
 
 bashio::log.info Starting ntfy
 
 bashio::log.info "certfile: $(bashio::config 'certfile')"
 bashio::log.info "keyfile: $(bashio::config 'keyfile')"
 
-bashio::log.info "NTFY_UPSTREAM_BASE_URL: ${NTFY_UPSTREAM_BASE_URL}"
-bashio::log.info "NTFY_BASE_URL: ${NTFY_BASE_URL}"
 
 bashio::log.info "output env: $(env)"
 
