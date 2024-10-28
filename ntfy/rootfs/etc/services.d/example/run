@@ -30,10 +30,7 @@ fi
 # export NTFY_BEHIND_PROXY=true
 # export NTFY_WEB_ROOT=disable
 
-bashio::log.info uname info: $(uname -a)
-
 bashio::log.info Starting ntfy
-bashio::log.info $(/usr/bin/ntfy --help)
 
 ## Run your program
 exec /usr/bin/ntfy serve
