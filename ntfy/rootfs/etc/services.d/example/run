@@ -56,6 +56,8 @@ fi
 # export NTFY_BEHIND_PROXY=true
 # export NTFY_WEB_ROOT=disable
 
+export NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
+
 bashio::log.info Starting ntfy
 
 bashio::log.info "certfile: $(bashio::config 'certfile')"
