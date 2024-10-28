@@ -69,6 +69,8 @@ auth-file: "${DATA_DIR}/auth.db"
 attachment-cache-dir: "${DATA_DIR}/attachments"
 enable-login: true
 auth-default-access: deny-all
+attachment-file-size-limit: 50M
+attachment-expiry-duration: 48h
 EOF
 
 mkdir -p ${DATA_DIR}/attachments
