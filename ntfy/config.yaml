@@ -15,13 +15,17 @@ ingress: true
 ingress_port: 80
 ingress_stream: true
 # ingress_entry: "/"
-webui: "[PROTO:ssl]://[HOST]:[PORT:8777]"
+webui: "[PROTO:ssl]://[HOST]:[PORT:7080]"
 ports:
-  80/tcp: 8777
-  80/udp: 8777
+  80/tcp: 7080
+  80/udp: 7080
+  443/tcp: 7443
+  443/udp: 7443
 ports_description:
   80/tcp: ntfy ui/api tcp
   80/udp: ntfy ui/api udp
+  443/tcp: ntfy tls ui/api tcp
+  443/udp: ntfy tls ui/api udp
 map:
   - ssl
 # environment:

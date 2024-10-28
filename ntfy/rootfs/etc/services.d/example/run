@@ -15,9 +15,14 @@ message=$(bashio::config 'message')
 ## Print the message the user supplied, defaults to "Hello World..."
 # bashio::log.info "${message:="Hello World..."}"
 
-# if bashio::config.true 'ssl'; then
-#     certfile=$(bashio::config 'certfile')
-#     keyfile=$(bashio::config 'keyfile')
+if bashio::config.true 'ssl'; then
+  certfile=$(bashio::config 'certfile')
+  keyfile=$(bashio::config 'keyfile')
+
+  export NTFY_LISTEN_HTTPS=:443
+  export NTFY_CERT_FILE="${certfile]}"
+  export NTFY_KEY_FILE="${keyfile]}"
+fi
 
 export NTFY_BEHIND_PROXY=true
 export NTFY_LISTEN_HTTP=:80
