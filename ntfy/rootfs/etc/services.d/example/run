@@ -47,8 +47,8 @@ if bashio::config.true 'ssl'; then
 
   export NTFY_LISTEN_HTTPS=:7612
   export NTFY_LISTEN_HTTP=""
-  export NTFY_CERT_FILE="${certfile}"
-  export NTFY_KEY_FILE="${keyfile}"
+  export NTFY_CERT_FILE="/ssl/${certfile}"
+  export NTFY_KEY_FILE="/ssl/${keyfile}"
 else
   export NTFY_LISTEN_HTTP=:7612
 fi
