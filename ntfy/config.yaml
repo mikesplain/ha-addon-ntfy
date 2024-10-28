@@ -11,16 +11,14 @@ arch:
   - amd64
   - i386
 init: false
-ingress: true
-ingress_port: 80
-ingress_stream: true
+# ingress: true
+# ingress_port: 80
+# ingress_stream: true
 # ingress_entry: "/"
-webui: "[PROTO:ssl]://[HOST]:[PORT:7080]"
+webui: "[PROTO:ssl]://[HOST]:[PORT:7612]"
 ports:
-  80/tcp: 7080
-  80/udp: 7080
-  443/tcp: 7443
-  443/udp: 7443
+  7612/tcp: 7612
+  7612/udp: 7612
 ports_description:
   80/tcp: ntfy ui/api tcp
   80/udp: ntfy ui/api udp
